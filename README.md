@@ -1,59 +1,54 @@
-# PostsWEBAPP
+# Posts System  Frontend Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+Sistema de gestion de posts y comentarios construido con Angular 21, Tailwind CSS v3 e Ionic Capacitor.
 
-## Development server
+## Stack
 
-To start a local development server, run:
+| Tecnologia | Version |
+|---|---
+| Angular | 21 (standalone, signals) |
+| Tailwind CSS | v3 (CSS-first, @theme) |
+| Ionic Capacitor | Latest |
+| RxJS | 7.8 |
 
-```bash
-ng serve
-```
+## Requisitos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js 18+
+- API backend corriendo en http://localhost:4202/v1 (ver PostsAPI/)
 
-## Code scaffolding
+## Instalacion y ejecucion
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+npm install
+npm start
+# http://localhost:4200
 
-```bash
-ng generate component component-name
-```
+## Compilacion produccion
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+npm run build
 
-```bash
-ng generate --help
-```
+## Estructura
 
-## Building
+src/app/
+  core/       - Interceptors, guards, services (JWT, Auth, Error)
+  shared/     - Componentes reutilizables (Button, Input, Avatar, Toast, Pagination...)
+  layout/     - Header + Footer
+  features/
+    auth/     - Login + Register
+    posts/    - PostList, PostDetail, PostForm, Comments
 
-To build the project run:
+## Funcionalidades
 
-```bash
-ng build
-```
+- Autenticacion JWT (login / registro / logout automatico al expirar)
+- CRUD de posts con busqueda, paginacion (10/25/50/100) y filtros
+- CRUD de comentarios estilo Facebook con paginacion
+- Timestamps relativos y tooltip de fecha exacta en edicion
+- Loading overlay global en cada request HTTP
+- Toasts de exito/error
+- Rutas protegidas con AuthGuard
+- Lazy loading en todas las rutas
+- Disenio responsive: mobile / tablet / desktop
+- Integracion Capacitor para compilar a Android/iOS
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Prueba tecnica Albatros - por Alvaro Javier Reyes Maradiaga

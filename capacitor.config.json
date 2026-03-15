@@ -1,0 +1,8 @@
+{
+  "appId": "com.albatros.postssystem",
+  "appName": "Posts System",
+  "webDir": "dist/posts-web-app/browser",
+  "server": {
+    "androidScheme": "https"
+  }
+}
