@@ -1,12 +1,51 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, ChangeDetectionStrategy, inject, OnInit, computed } from '@angular/core';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { AppHeaderComponent } from './layout/header/header.component';
+import { AppFooterComponent } from './layout/footer/footer.component';
+import { AppLoadingComponent } from './shared/components/loading/loading.component';
+import { AppToastNotificationComponent } from './shared/components/toast-notification/toast-notification.component';
+import { ErrorService } from './core/services/error.service';
+import { AppToastService } from './shared/components/toast-notification/toast.service';
+import { AuthService } from './core/services/auth.service';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterOutlet, AppHeaderComponent, AppFooterComponent, AppLoadingComponent, AppToastNotificationComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
-  protected readonly title = signal('Posts_WEB-APP');
+export class App implements OnInit {
+  private readonly errorService = inject(ErrorService);
+  private readonly toastService = inject(AppToastService);
+  private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+
+  // Signal que rastrea la URL actual
+  private readonly currentUrl = toSignal(
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(event => (event as NavigationEnd).url),
+      startWith(this.router.url)
+    )
+  );
+
+  // Computed que determina si se debe mostrar el header
+  readonly shouldShowHeader = computed(() => {
+    const url = this.currentUrl();
+    const isAuthenticated = this.authService.isLoggedIn();
+    const isAuthRoute = url === '/login' || url === '/register';
+    
+    return isAuthenticated && !isAuthRoute;
+  });
+
+  ngOnInit(): void {
+    this.errorService.registerToast((type, msg) => {
+      if (type === 'error') this.toastService.error(msg);
+      else if (type === 'success') this.toastService.success(msg);
+      else this.toastService.info(msg);
+    });
+  }
 }
