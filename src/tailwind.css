@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Paleta Carbon Black ── */
+    --color-carbon-black-50: #f2f4f0;
+    --color-carbon-black-100: #e5eae1;
+    --color-carbon-black-200: #cbd5c3;
+    --color-carbon-black-300: #b1c0a5;
+    --color-carbon-black-400: #97aa88;
+    --color-carbon-black-500: #7d956a;
+    --color-carbon-black-600: #647755;
+    --color-carbon-black-700: #4b5a3f;
+    --color-carbon-black-800: #323c2a;
+    --color-carbon-black-900: #191e15;
+    --color-carbon-black-950: #12150f;
+
+    /* ── Paleta Black Forest ── */
+    --color-black-forest-50: #eef7ee;
+    --color-black-forest-100: #ddeede;
+    --color-black-forest-200: #badebd;
+    --color-black-forest-300: #98cd9b;
+    --color-black-forest-400: #75bd7a;
+    --color-black-forest-500: #53ac59;
+    --color-black-forest-600: #428a47;
+    --color-black-forest-700: #326735;
+    --color-black-forest-800: #214524;
+    --color-black-forest-900: #112212;
+    --color-black-forest-950: #0c180c;
+
+    /* ── Paleta Hunter Green ── */
+    --color-hunter-green-50: #eff6ef;
+    --color-hunter-green-100: #e0edde;
+    --color-hunter-green-200: #c0dbbd;
+    --color-hunter-green-300: #a1c99c;
+    --color-hunter-green-400: #81b77b;
+    --color-hunter-green-500: #62a45b;
+    --color-hunter-green-600: #4e8448;
+    --color-hunter-green-700: #3b6336;
+    --color-hunter-green-800: #274224;
+    --color-hunter-green-900: #142112;
+    --color-hunter-green-950: #0e170d;
+
+    /* ── Paleta Fern ── */
+    --color-fern-50: #eff5f1;
+    --color-fern-100: #dfece3;
+    --color-fern-200: #c0d8c6;
+    --color-fern-300: #a0c5aa;
+    --color-fern-400: #81b18e;
+    --color-fern-500: #619e71;
+    --color-fern-600: #4e7e5b;
+    --color-fern-700: #3a5f44;
+    --color-fern-800: #273f2d;
+    --color-fern-900: #132017;
+    --color-fern-950: #0e1610;
+
+    /* ── Paleta Aquamarine ── */
+    --color-aquamarine-50: #e9fbf2;
+    --color-aquamarine-100: #d4f7e5;
+    --color-aquamarine-200: #a8f0cb;
+    --color-aquamarine-300: #7de8b1;
+    --color-aquamarine-400: #52e097;
+    --color-aquamarine-500: #26d97d;
+    --color-aquamarine-600: #1fad64;
+    --color-aquamarine-700: #17824b;
+    --color-aquamarine-800: #0f5732;
+    --color-aquamarine-900: #082b19;
+    --color-aquamarine-950: #051e11;
+
+    /* ── Semantic aliases ── */
+    --color-background: var(--color-carbon-black-50);
+    --color-surface: #ffffff;
+    --color-primary: var(--color-hunter-green-600);
+    --color-primary-hover: var(--color-hunter-green-700);
+    --color-primary-light: var(--color-hunter-green-100);
+
+    --color-text: var(--color-carbon-black-900);
+    --color-muted: var(--color-carbon-black-500);
+    --color-border: var(--color-carbon-black-200);
+    --color-error: #dc2626;
+    --color-success: var(--color-aquamarine-600);
+
+    /* ── Radios ── */
+    --radius-card: 0.75rem;
+    --radius-btn: 0.5rem;
+    --radius-input: 0.375rem;
+
+    /* ── Sombras ── */
+    --shadow-card: 0 1px 3px rgb(0 0 0 / 0.08), 0 4px 12px rgb(0 0 0 / 0.06);
+    --shadow-hover: 0 4px 16px rgb(0 0 0 / 0.14);
+  }
+}
+
+@layer components {
+  /* Keyframes para animaciones personalizadas */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slide-up {
+    from { 
+      opacity: 0; 
+      transform: translateY(12px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+}
