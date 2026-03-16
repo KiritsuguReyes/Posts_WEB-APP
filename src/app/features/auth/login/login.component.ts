@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/cor
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
-import { AppToastService } from '../../../shared/components/toast-notification/toast.service';
+import { toast } from 'ngx-sonner';
 import { AppButtonComponent } from '../../../shared/components/button/button.component';
 import { AppInputComponent } from '../../../shared/components/input/input.component';
 
@@ -73,7 +73,6 @@ export class LoginComponent {
   private readonly fb = inject(FormBuilder);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
-  private readonly toastService = inject(AppToastService);
 
   loading = signal(false);
   errorMsg = signal('');
@@ -100,7 +99,7 @@ export class LoginComponent {
 
     this.authService.login(email!, password!).subscribe({
       next: () => {
-        this.toastService.success('¡Bienvenido!');
+        toast.success('¡Bienvenido!');
         this.router.navigate(['/posts']);
       },
       error: () => {

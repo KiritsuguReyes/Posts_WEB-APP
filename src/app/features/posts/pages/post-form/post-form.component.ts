@@ -3,7 +3,7 @@ import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { AuthService } from '../../../../core/services/auth.service';
-import { AppToastService } from '../../../../shared/components/toast-notification/toast.service';
+import { toast } from 'ngx-sonner';
 import { AppButtonComponent } from '../../../../shared/components/button/button.component';
 import { AppInputComponent } from '../../../../shared/components/input/input.component';
 import { AppTextareaComponent } from '../../../../shared/components/textarea/textarea.component';
@@ -89,7 +89,6 @@ export class PostFormComponent implements OnInit {
   private readonly postsService = inject(PostsService);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
-  private readonly toastService = inject(AppToastService);
 
   saving = signal(false);
   loadingPost = signal(false);
@@ -142,7 +141,7 @@ export class PostFormComponent implements OnInit {
     req$.subscribe({
       next: res => {
         this.saving.set(false);
-        this.toastService.success(this.isEditMode() ? 'Post actualizado' : 'Post creado');
+        toast.success(this.isEditMode() ? 'Post actualizado' : 'Post creado');
         const postId = res.data?._id ?? this.id()!;
         this.router.navigate(['/posts', postId]);
       },

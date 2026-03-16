@@ -3,9 +3,8 @@ import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { AppHeaderComponent } from './layout/header/header.component';
 import { AppFooterComponent } from './layout/footer/footer.component';
 import { AppLoadingComponent } from './shared/components/loading/loading.component';
-import { AppToastNotificationComponent } from './shared/components/toast-notification/toast-notification.component';
+import { NgxSonnerToaster, toast } from 'ngx-sonner';
 import { ErrorService } from './core/services/error.service';
-import { AppToastService } from './shared/components/toast-notification/toast.service';
 import { AuthService } from './core/services/auth.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs/operators';
@@ -13,13 +12,12 @@ import { filter, map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet, AppHeaderComponent, AppFooterComponent, AppLoadingComponent, AppToastNotificationComponent],
+  imports: [RouterOutlet, AppHeaderComponent, AppFooterComponent, AppLoadingComponent, NgxSonnerToaster],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App implements OnInit {
   private readonly errorService = inject(ErrorService);
-  private readonly toastService = inject(AppToastService);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
@@ -43,9 +41,9 @@ export class App implements OnInit {
 
   ngOnInit(): void {
     this.errorService.registerToast((type, msg) => {
-      if (type === 'error') this.toastService.error(msg);
-      else if (type === 'success') this.toastService.success(msg);
-      else this.toastService.info(msg);
+      if (type === 'error') toast.error(msg);
+      else if (type === 'success') toast.success(msg);
+      else toast(msg);
     });
   }
 }

@@ -13,9 +13,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const loadingService = inject(LoadingService);
 
   const token = jwtService.getToken();
-  const authReq = token
-    ? req.clone({ setHeaders: { Authorization: `Bearer ${token}` } })
-    : req;
+  const headers: Record<string, string> = { 'ngrok-skip-browser-warning': 'true' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+  const authReq = req.clone({ setHeaders: headers });
 
   loadingService.isLoading = true;
 

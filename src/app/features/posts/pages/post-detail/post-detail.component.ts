@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 import { PostsService } from '../../services/posts.service';
 import { CommentsService } from '../../services/comments.service';
 import { AuthService } from '../../../../core/services/auth.service';
-import { AppToastService } from '../../../../shared/components/toast-notification/toast.service';
+import { toast } from 'ngx-sonner';
 import { Post } from '../../../../core/models/post.model';
 import { Comment } from '../../../../core/models/comment.model';
 import { AppAvatarComponent } from '../../../../shared/components/avatar/avatar.component';
@@ -233,7 +233,6 @@ export class PostDetailComponent implements OnInit {
   private readonly commentsService = inject(CommentsService);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
-  private readonly toastService = inject(AppToastService);
 
   // Template reference al formulario de comentarios
   commentForm = viewChild<CommentFormComponent>('commentForm');
@@ -345,7 +344,7 @@ export class PostDetailComponent implements OnInit {
         this.submittingComment.set(false);
         this.commentsPage.set(1);
         this.reloadComments$.next();
-        this.toastService.success('Comentario enviado');
+        toast.success('Comentario enviado');
         // Solo resetear el formulario cuando hay éxito
         this.commentForm()?.reset();
       },
@@ -391,7 +390,7 @@ export class PostDetailComponent implements OnInit {
         this.updatingComment.set(false);
         this.cancelCommentEdit();
         this.reloadComments$.next();
-        this.toastService.success('Comentario actualizado');
+        toast.success('Comentario actualizado');
       },
       error: () => { this.updatingComment.set(false); }
     });
@@ -412,7 +411,7 @@ export class PostDetailComponent implements OnInit {
         this.confirmDeleteComment.set(false);
         this.deletingCommentId.set(null);
         this.reloadComments$.next();
-        this.toastService.success('Comentario eliminado');
+        toast.success('Comentario eliminado');
       },
       error: () => { this.deletingComment.set(false); }
     });
@@ -424,7 +423,7 @@ export class PostDetailComponent implements OnInit {
     this.deletingPost.set(true);
     this.postsService.delete(this.id()).subscribe({
       next: () => {
-        this.toastService.success('Post eliminado');
+        toast.success('Post eliminado');
         this.router.navigate(['/posts']);
       },
       error: () => { this.deletingPost.set(false); }

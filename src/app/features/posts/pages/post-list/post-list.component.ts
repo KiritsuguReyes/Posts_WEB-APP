@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Subject, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
 import { PostsService } from '../../services/posts.service';
 import { AuthService } from '../../../../core/services/auth.service';
-import { AppToastService } from '../../../../shared/components/toast-notification/toast.service';
+import { toast } from 'ngx-sonner';
 import { Post } from '../../../../core/models/post.model';
 import { PostCardComponent } from '../../components/post-card/post-card.component';
 import { AppPaginationComponent } from '../../../../shared/components/pagination/pagination.component';
@@ -163,7 +163,6 @@ export class PostListComponent implements OnInit {
   private readonly postsService = inject(PostsService);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
-  private readonly toastService = inject(AppToastService);
 
   posts = signal<Post[]>([]);
   search = signal('');
@@ -275,7 +274,7 @@ export class PostListComponent implements OnInit {
     this.postsService.deleteBulk(ids).subscribe({
       next: (res) => {
         const count = res.data?.deletedCount ?? ids.length;
-        this.toastService.success(`${count} ${count === 1 ? 'post eliminado' : 'posts eliminados'}`);
+        toast.success(`${count} ${count === 1 ? 'post eliminado' : 'posts eliminados'}`);
         this.bulkDeleting.set(false);
         this.bulkDeleteVisible.set(false);
         this.clearSelection();
@@ -292,7 +291,7 @@ export class PostListComponent implements OnInit {
     this.deletingId.set(id);
     this.postsService.delete(id).subscribe({
       next: () => {
-        this.toastService.success('Post eliminado');
+        toast.success('Post eliminado');
         this.deletingId.set(null);
         this.loadPosts();
       },
