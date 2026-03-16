@@ -94,7 +94,7 @@ npm start
 El script `scripts/set-env.js` lee un archivo `.env` en la raíz y genera `src/environments/environment.ts`:
 
 ```env
-API_URL=http://localhost:4202/v1
+API_URL=http://localhost:3000/v1
 ```
 
 Esto produce:
