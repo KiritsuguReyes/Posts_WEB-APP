@@ -7,7 +7,7 @@ import { AppAvatarComponent } from '../../shared/components/avatar/avatar.compon
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [AppAvatarComponent],
   template: `
-    <header class="sticky top-0 z-50 bg-hunter-green-800 shadow-md">
+    <header class="sticky top-0 z-50 bg-hunter-green-800 shadow-md" style="padding-top: env(safe-area-inset-top)">
       <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
         <!-- Logo / Title -->
         <div class="flex items-center gap-2 min-w-0">

@@ -4,7 +4,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <footer class="bg-carbon-black-800 py-4">
+    <footer class="bg-carbon-black-800 pt-4 pb-4" style="padding-bottom: calc(1rem + env(safe-area-inset-bottom))">
       <div class="max-w-7xl mx-auto px-4 text-center">
         <p class="text-carbon-black-300 text-sm">
           Albatros — Prueba Técnica · por <span class="text-carbon-black-200 font-medium">Alvaro Javier Reyes Maradiaga</span>
