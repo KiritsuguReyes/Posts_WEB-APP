@@ -2,11 +2,11 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { JwtService } from './jwt.service';
-import { JwtClaims } from '../models/jwt-claims.model';
-import { AuthResponse } from '../models/user.model';
-import { ApiResponse } from '../models/api-response.model';
+import { environment } from '@env/environment';
+import { JwtService } from '@core/services/jwt.service';
+import { JwtClaims } from '@core/models/jwt-claims.model';
+import { AuthResponse } from '@core/models/user.model';
+import { ApiResponse } from '@core/models/api-response.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

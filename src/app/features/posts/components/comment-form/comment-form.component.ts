@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef, input, output, signal, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AppAvatarComponent } from '../../../../shared/components/avatar/avatar.component';
-import { AppButtonComponent } from '../../../../shared/components/button/button.component';
+import { AppAvatarComponent } from '@shared/components/avatar/avatar.component';
+import { AppButtonComponent } from '@shared/components/button/button.component';
 
 @Component({
   selector: 'app-comment-form',

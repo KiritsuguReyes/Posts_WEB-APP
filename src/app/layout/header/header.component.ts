@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
-import { AuthService } from '../../core/services/auth.service';
-import { AppAvatarComponent } from '../../shared/components/avatar/avatar.component';
+import { AuthService } from '@core/services/auth.service';
+import { AppAvatarComponent } from '@shared/components/avatar/avatar.component';
 
 @Component({
   selector: 'app-header',

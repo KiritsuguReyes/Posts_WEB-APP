@@ -1,13 +1,13 @@
 import { Component, ChangeDetectionStrategy, inject, signal, computed, OnInit, input } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PostsService } from '../../services/posts.service';
-import { AuthService } from '../../../../core/services/auth.service';
+import { PostsService } from '@features/posts/services/posts.service';
+import { AuthService } from '@core/services/auth.service';
 import { toast } from 'ngx-sonner';
-import { AppButtonComponent } from '../../../../shared/components/button/button.component';
-import { AppInputComponent } from '../../../../shared/components/input/input.component';
-import { AppTextareaComponent } from '../../../../shared/components/textarea/textarea.component';
-import { AppAvatarComponent } from '../../../../shared/components/avatar/avatar.component';
+import { AppButtonComponent } from '@shared/components/button/button.component';
+import { AppInputComponent } from '@shared/components/input/input.component';
+import { AppTextareaComponent } from '@shared/components/textarea/textarea.component';
+import { AppAvatarComponent } from '@shared/components/avatar/avatar.component';
 
 @Component({
   selector: 'app-post-form',

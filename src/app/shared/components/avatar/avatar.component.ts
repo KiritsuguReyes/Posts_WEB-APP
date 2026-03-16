@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, input, computed } from '@angular/core';
-import { InitialsPipe } from '../../pipes/initials.pipe';
+import { InitialsPipe } from '@shared/pipes/initials.pipe';
 
 export type AvatarSize = 'sm' | 'md' | 'lg';
 

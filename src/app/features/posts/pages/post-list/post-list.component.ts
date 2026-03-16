@@ -3,15 +3,15 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
-import { PostsService } from '../../services/posts.service';
-import { AuthService } from '../../../../core/services/auth.service';
+import { PostsService } from '@features/posts/services/posts.service';
+import { AuthService } from '@core/services/auth.service';
 import { toast } from 'ngx-sonner';
-import { Post } from '../../../../core/models/post.model';
-import { PostCardComponent } from '../../components/post-card/post-card.component';
-import { AppPaginationComponent } from '../../../../shared/components/pagination/pagination.component';
-import { AppEmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
-import { AppButtonComponent } from '../../../../shared/components/button/button.component';
-import { AppInputComponent } from '../../../../shared/components/input/input.component';
+import { Post } from '@core/models/post.model';
+import { PostCardComponent } from '@features/posts/components/post-card/post-card.component';
+import { AppPaginationComponent } from '@shared/components/pagination/pagination.component';
+import { AppEmptyStateComponent } from '@shared/components/empty-state/empty-state.component';
+import { AppButtonComponent } from '@shared/components/button/button.component';
+import { AppInputComponent } from '@shared/components/input/input.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({

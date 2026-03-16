@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 import { toast } from 'ngx-sonner';
-import { AppButtonComponent } from '../../../shared/components/button/button.component';
-import { AppInputComponent } from '../../../shared/components/input/input.component';
+import { AppButtonComponent } from '@shared/components/button/button.component';
+import { AppInputComponent } from '@shared/components/input/input.component';
 
 @Component({
   selector: 'app-login',

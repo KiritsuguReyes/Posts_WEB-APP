@@ -1,10 +1,10 @@
 import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, finalize, throwError } from 'rxjs';
-import { JwtService } from '../services/jwt.service';
-import { AuthService } from '../services/auth.service';
-import { ErrorService } from '../services/error.service';
-import { LoadingService } from '../../shared/components/loading/loading.service';
+import { JwtService } from '@core/services/jwt.service';
+import { AuthService } from '@core/services/auth.service';
+import { ErrorService } from '@core/services/error.service';
+import { LoadingService } from '@shared/components/loading/loading.service';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const jwtService = inject(JwtService);

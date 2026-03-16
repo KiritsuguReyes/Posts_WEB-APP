@@ -1,11 +1,11 @@
 import { Component, ChangeDetectionStrategy, input, output, inject, computed } from '@angular/core';
 import { Router } from '@angular/router';
-import { Post } from '../../../../core/models/post.model';
-import { relativeDate } from '../../../../core/utils/date.utils';
-import { AppAvatarComponent } from '../../../../shared/components/avatar/avatar.component';
-import { AppButtonComponent } from '../../../../shared/components/button/button.component';
-import { AppConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
-import { AppTooltipDirective } from '../../../../shared/directives/tooltip.directive';
+import { Post } from '@core/models/post.model';
+import { relativeDate } from '@core/utils/date.utils';
+import { AppAvatarComponent } from '@shared/components/avatar/avatar.component';
+import { AppButtonComponent } from '@shared/components/button/button.component';
+import { AppConfirmDialogComponent } from '@shared/components/confirm-dialog/confirm-dialog.component';
+import { AppTooltipDirective } from '@shared/directives/tooltip.directive';
 import { signal } from '@angular/core';
 
 @Component({

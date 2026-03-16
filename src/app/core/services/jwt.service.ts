@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { JwtClaims } from '../models/jwt-claims.model';
+import { JwtClaims } from '@core/models/jwt-claims.model';
 
 const TOKEN_KEY = 'auth_token';
 

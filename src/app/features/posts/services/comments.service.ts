@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, catchError, retry, throwError, timer } from 'rxjs';
-import { environment } from '../../../../environments/environment';
-import { Comment } from '../../../core/models/comment.model';
-import { ApiResponse, PaginatedResponse } from '../../../core/models/api-response.model';
+import { environment } from '@env/environment';
+import { Comment } from '@core/models/comment.model';
+import { ApiResponse, PaginatedResponse } from '@core/models/api-response.model';
 
 export interface CommentsQuery {
   postId: string;

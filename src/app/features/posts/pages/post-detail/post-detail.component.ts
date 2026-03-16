@@ -4,20 +4,20 @@ import {
 import { Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
 import { Subject } from 'rxjs';
-import { relativeDate, formatDate } from '../../../../core/utils/date.utils';
-import { PostsService } from '../../services/posts.service';
-import { CommentsService } from '../../services/comments.service';
-import { AuthService } from '../../../../core/services/auth.service';
+import { relativeDate, formatDate } from '@core/utils/date.utils';
+import { PostsService } from '@features/posts/services/posts.service';
+import { CommentsService } from '@features/posts/services/comments.service';
+import { AuthService } from '@core/services/auth.service';
 import { toast } from 'ngx-sonner';
-import { Post } from '../../../../core/models/post.model';
-import { Comment } from '../../../../core/models/comment.model';
-import { AppAvatarComponent } from '../../../../shared/components/avatar/avatar.component';
-import { AppButtonComponent } from '../../../../shared/components/button/button.component';
-import { AppPaginationComponent } from '../../../../shared/components/pagination/pagination.component';
-import { AppConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
-import { AppTooltipDirective } from '../../../../shared/directives/tooltip.directive';
-import { CommentFormComponent } from '../../components/comment-form/comment-form.component';
-import { AppTextareaComponent } from '../../../../shared/components/textarea/textarea.component';
+import { Post } from '@core/models/post.model';
+import { Comment } from '@core/models/comment.model';
+import { AppAvatarComponent } from '@shared/components/avatar/avatar.component';
+import { AppButtonComponent } from '@shared/components/button/button.component';
+import { AppPaginationComponent } from '@shared/components/pagination/pagination.component';
+import { AppConfirmDialogComponent } from '@shared/components/confirm-dialog/confirm-dialog.component';
+import { AppTooltipDirective } from '@shared/directives/tooltip.directive';
+import { CommentFormComponent } from '@features/posts/components/comment-form/comment-form.component';
+import { AppTextareaComponent } from '@shared/components/textarea/textarea.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({

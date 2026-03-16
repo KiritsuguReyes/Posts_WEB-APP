@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, input, output, signal } from '@angular/core';
-import { AppButtonComponent } from '../button/button.component';
+import { AppButtonComponent } from '@shared/components/button/button.component';
 
 @Component({
   selector: 'app-confirm-dialog',

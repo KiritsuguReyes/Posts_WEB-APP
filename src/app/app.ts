@@ -1,11 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit, computed } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
-import { AppHeaderComponent } from './layout/header/header.component';
-import { AppFooterComponent } from './layout/footer/footer.component';
-import { AppLoadingComponent } from './shared/components/loading/loading.component';
+import { AppHeaderComponent } from '@layout/header/header.component';
+import { AppFooterComponent } from '@layout/footer/footer.component';
+import { AppLoadingComponent } from '@shared/components/loading/loading.component';
 import { NgxSonnerToaster, toast } from 'ngx-sonner';
-import { ErrorService } from './core/services/error.service';
-import { AuthService } from './core/services/auth.service';
+import { ErrorService } from '@core/services/error.service';
+import { AuthService } from '@core/services/auth.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs/operators';
 
