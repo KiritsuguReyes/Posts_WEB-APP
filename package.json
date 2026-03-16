@@ -9,7 +9,7 @@
     "build-prod": "ng build --configuration production --aot --output-hashing=all",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test --coverage"
   },
   "private": true,
   "packageManager": "npm@11.9.0",
@@ -23,6 +23,7 @@
     "@capacitor/android": "8.2.0",
     "@capacitor/cli": "^8.2.0",
     "@capacitor/core": "^8.2.0",
+    "@vitest/coverage-v8": "^4.1.0",
     "ngx-sonner": "^3.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
