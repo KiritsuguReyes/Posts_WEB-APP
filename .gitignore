@@ -43,3 +43,7 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment files - generated from .env via: npm run config
+.env
+src/environments/
