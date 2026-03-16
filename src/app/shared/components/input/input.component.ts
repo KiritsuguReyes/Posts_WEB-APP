@@ -5,6 +5,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@a
   selector: 'app-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
+  styles: [`:host { display: block; }`],
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => AppInputComponent), multi: true }],
   template: `
     <div class="flex flex-col gap-1">

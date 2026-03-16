@@ -8,7 +8,7 @@ import { AppAvatarComponent } from '../../shared/components/avatar/avatar.compon
   imports: [AppAvatarComponent],
   template: `
     <header class="sticky top-0 z-50 bg-hunter-green-800 shadow-md">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
         <!-- Logo / Title -->
         <div class="flex items-center gap-2 min-w-0">
           <span class="text-xl font-bold text-white tracking-tight truncate">Posts System</span>
