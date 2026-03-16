@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { AppAvatarComponent, AvatarSize } from '../../../../src/app/shared/components/avatar/avatar.component';
+import { AppAvatarComponent, AvatarSize } from '@shared/components/avatar/avatar.component';
 
 describe('AppAvatarComponent', () => {
   let fixture: ComponentFixture<AppAvatarComponent>;

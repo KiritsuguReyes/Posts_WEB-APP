@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
-import { RegisterComponent } from '../../../../src/app/features/auth/register/register.component';
-import { AuthService } from '../../../../src/app/core/services/auth.service';
+import { RegisterComponent } from '@features/auth/register/register.component';
+import { AuthService } from '@core/services/auth.service';
 
 const mockAuthService = {
   register: vi.fn(),

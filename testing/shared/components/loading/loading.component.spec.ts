@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { AppLoadingComponent } from '../../../../src/app/shared/components/loading/loading.component';
-import { LoadingService } from '../../../../src/app/shared/components/loading/loading.service';
+import { AppLoadingComponent } from '@shared/components/loading/loading.component';
+import { LoadingService } from '@shared/components/loading/loading.service';
 
 describe('AppLoadingComponent', () => {
   let fixture: ComponentFixture<AppLoadingComponent>;

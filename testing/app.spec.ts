@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
-import { App } from '../src/app/app';
-import { AuthService } from '../src/app/core/services/auth.service';
-import { ErrorService } from '../src/app/core/services/error.service';
+import { App } from '@app/app';
+import { AuthService } from '@core/services/auth.service';
+import { ErrorService } from '@core/services/error.service';
 
 // NgxSonnerToaster uses window.matchMedia which is unavailable in jsdom
 beforeAll(() => {

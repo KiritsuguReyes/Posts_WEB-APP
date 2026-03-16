@@ -1,12 +1,12 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { of, throwError, NEVER } from 'rxjs';
-import { PostListComponent } from '../../../../../src/app/features/posts/pages/post-list/post-list.component';
-import { PostsService } from '../../../../../src/app/features/posts/services/posts.service';
-import { AuthService } from '../../../../../src/app/core/services/auth.service';
-import { Post } from '../../../../../src/app/core/models/post.model';
-import { PaginatedResponse, ApiResponse } from '../../../../../src/app/core/models/api-response.model';
-import { JwtClaims } from '../../../../../src/app/core/models/jwt-claims.model';
+import { PostListComponent } from '@features/posts/pages/post-list/post-list.component';
+import { PostsService } from '@features/posts/services/posts.service';
+import { AuthService } from '@core/services/auth.service';
+import { Post } from '@core/models/post.model';
+import { PaginatedResponse, ApiResponse } from '@core/models/api-response.model';
+import { JwtClaims } from '@core/models/jwt-claims.model';
 
 const OWNER_ID = 'user-1';
 

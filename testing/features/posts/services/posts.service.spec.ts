@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { PostsService, PostsQuery, CreatePostDto } from '../../../../src/app/features/posts/services/posts.service';
-import { Post } from '../../../../src/app/core/models/post.model';
-import { ApiResponse, PaginatedResponse } from '../../../../src/app/core/models/api-response.model';
-import { environment } from '../../../../src/environments/environment';
+import { PostsService, PostsQuery, CreatePostDto } from '@features/posts/services/posts.service';
+import { Post } from '@core/models/post.model';
+import { ApiResponse, PaginatedResponse } from '@core/models/api-response.model';
+import { environment } from '@env/environment';
 
 const API_URL = `${environment.apiUrl}/posts`;
 

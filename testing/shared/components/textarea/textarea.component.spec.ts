@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppTextareaComponent } from '../../../../src/app/shared/components/textarea/textarea.component';
+import { AppTextareaComponent } from '@shared/components/textarea/textarea.component';
 
 describe('AppTextareaComponent', () => {
   let fixture: ComponentFixture<AppTextareaComponent>;

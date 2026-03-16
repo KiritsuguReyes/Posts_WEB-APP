@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { AppConfirmDialogComponent } from '../../../../src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { AppConfirmDialogComponent } from '@shared/components/confirm-dialog/confirm-dialog.component';
 
 describe('AppConfirmDialogComponent', () => {
   let fixture: ComponentFixture<AppConfirmDialogComponent>;

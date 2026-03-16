@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, provideRouter } from '@angular/router';
-import { guestGuard } from '../../../src/app/core/guards/guest.guard';
-import { AuthService } from '../../../src/app/core/services/auth.service';
+import { guestGuard } from '@core/guards/guest.guard';
+import { AuthService } from '@core/services/auth.service';
 
 function runGuard(loggedIn: boolean, url = '/login') {
   const mockAuthService = { isLoggedIn: () => loggedIn };

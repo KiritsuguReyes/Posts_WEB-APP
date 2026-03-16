@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
-import { LoginComponent } from '../../../../src/app/features/auth/login/login.component';
-import { AuthService } from '../../../../src/app/core/services/auth.service';
+import { LoginComponent } from '@features/auth/login/login.component';
+import { AuthService } from '@core/services/auth.service';
 
 const mockAuthService = {
   login: vi.fn(),

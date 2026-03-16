@@ -1,14 +1,14 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
-import { PostDetailComponent } from '../../../../../src/app/features/posts/pages/post-detail/post-detail.component';
-import { PostsService } from '../../../../../src/app/features/posts/services/posts.service';
-import { CommentsService } from '../../../../../src/app/features/posts/services/comments.service';
-import { AuthService } from '../../../../../src/app/core/services/auth.service';
-import { Post } from '../../../../../src/app/core/models/post.model';
-import { Comment } from '../../../../../src/app/core/models/comment.model';
-import { ApiResponse, PaginatedResponse } from '../../../../../src/app/core/models/api-response.model';
-import { JwtClaims } from '../../../../../src/app/core/models/jwt-claims.model';
+import { PostDetailComponent } from '@features/posts/pages/post-detail/post-detail.component';
+import { PostsService } from '@features/posts/services/posts.service';
+import { CommentsService } from '@features/posts/services/comments.service';
+import { AuthService } from '@core/services/auth.service';
+import { Post } from '@core/models/post.model';
+import { Comment } from '@core/models/comment.model';
+import { ApiResponse, PaginatedResponse } from '@core/models/api-response.model';
+import { JwtClaims } from '@core/models/jwt-claims.model';
 
 const OWNER_ID = 'user-1';
 

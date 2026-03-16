@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorService } from '../../../src/app/core/services/error.service';
+import { ErrorService } from '@core/services/error.service';
 
 function makeError(status: number): HttpErrorResponse {
   return new HttpErrorResponse({ url: '/test', status, statusText: 'Error', error: {} });

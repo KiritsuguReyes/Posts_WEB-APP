@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { AppEmptyStateComponent } from '../../../../src/app/shared/components/empty-state/empty-state.component';
+import { AppEmptyStateComponent } from '@shared/components/empty-state/empty-state.component';
 
 describe('AppEmptyStateComponent', () => {
   let fixture: ComponentFixture<AppEmptyStateComponent>;

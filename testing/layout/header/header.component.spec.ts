@@ -1,8 +1,8 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { AppHeaderComponent } from '../../../src/app/layout/header/header.component';
-import { AuthService } from '../../../src/app/core/services/auth.service';
-import { JwtClaims } from '../../../src/app/core/models/jwt-claims.model';
+import { AppHeaderComponent } from '@layout/header/header.component';
+import { AuthService } from '@core/services/auth.service';
+import { JwtClaims } from '@core/models/jwt-claims.model';
 
 const fakeClaims: JwtClaims = {
   sub: '1',

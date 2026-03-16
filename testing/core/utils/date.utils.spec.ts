@@ -1,4 +1,4 @@
-import { formatDate, relativeDate } from '../../../src/app/core/utils/date.utils';
+import { formatDate, relativeDate } from '@core/utils/date.utils';
 
 /** Returns an ISO string that is `offsetMs` milliseconds from now */
 function msAgo(ms: number): string {

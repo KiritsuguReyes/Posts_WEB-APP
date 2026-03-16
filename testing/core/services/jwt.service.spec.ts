@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { JwtService } from '../../../src/app/core/services/jwt.service';
-import { JwtClaims } from '../../../src/app/core/models/jwt-claims.model';
+import { JwtService } from '@core/services/jwt.service';
+import { JwtClaims } from '@core/models/jwt-claims.model';
 
 /** Encodes a payload to a valid JWT structure (no real signature) */
 function buildFakeToken(claims: Partial<JwtClaims> & { exp: number }): string {

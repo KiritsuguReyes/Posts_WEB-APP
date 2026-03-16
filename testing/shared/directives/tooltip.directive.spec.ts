@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
-import { AppTooltipDirective } from '../../../src/app/shared/directives/tooltip.directive';
+import { AppTooltipDirective } from '@shared/directives/tooltip.directive';
 
 @Component({
   template: `<button [appTooltip]="text()">Hover me</button>`,

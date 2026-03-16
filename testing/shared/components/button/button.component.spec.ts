@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { AppButtonComponent, ButtonVariant, ButtonSize } from '../../../../src/app/shared/components/button/button.component';
+import { AppButtonComponent, ButtonVariant, ButtonSize } from '@shared/components/button/button.component';
 
 describe('AppButtonComponent', () => {
   let fixture: ComponentFixture<AppButtonComponent>;

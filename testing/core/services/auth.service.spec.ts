@@ -9,9 +9,9 @@ import {
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
-import { AuthService } from '../../../src/app/core/services/auth.service';
-import { JwtService } from '../../../src/app/core/services/jwt.service';
-import { JwtClaims } from '../../../src/app/core/models/jwt-claims.model';
+import { AuthService } from '@core/services/auth.service';
+import { JwtService } from '@core/services/jwt.service';
+import { JwtClaims } from '@core/models/jwt-claims.model';
 
 function makeAuthResponse(token = 'header.payload.sig') {
   return { success: true, message: 'ok', data: { access_token: token } };

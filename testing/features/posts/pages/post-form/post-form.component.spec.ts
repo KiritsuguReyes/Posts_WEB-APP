@@ -1,12 +1,12 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
-import { PostFormComponent } from '../../../../../src/app/features/posts/pages/post-form/post-form.component';
-import { PostsService } from '../../../../../src/app/features/posts/services/posts.service';
-import { AuthService } from '../../../../../src/app/core/services/auth.service';
-import { Post } from '../../../../../src/app/core/models/post.model';
-import { ApiResponse } from '../../../../../src/app/core/models/api-response.model';
-import { JwtClaims } from '../../../../../src/app/core/models/jwt-claims.model';
+import { PostFormComponent } from '@features/posts/pages/post-form/post-form.component';
+import { PostsService } from '@features/posts/services/posts.service';
+import { AuthService } from '@core/services/auth.service';
+import { Post } from '@core/models/post.model';
+import { ApiResponse } from '@core/models/api-response.model';
+import { JwtClaims } from '@core/models/jwt-claims.model';
 
 const fakeClaims: JwtClaims = {
   sub: 'user-1', name: 'Alice', email: 'alice@example.com', iat: 0, exp: 9999999999,

@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
-import { AppInputComponent } from '../../../../src/app/shared/components/input/input.component';
+import { AppInputComponent } from '@shared/components/input/input.component';
 
 describe('AppInputComponent', () => {
   let fixture: ComponentFixture<AppInputComponent>;

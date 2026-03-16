@@ -1,4 +1,4 @@
-import { InitialsPipe } from '../../../src/app/shared/pipes/initials.pipe';
+import { InitialsPipe } from '@shared/pipes/initials.pipe';
 
 describe('InitialsPipe', () => {
   let pipe: InitialsPipe;

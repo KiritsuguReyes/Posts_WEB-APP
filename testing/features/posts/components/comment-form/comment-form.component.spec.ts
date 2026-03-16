@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { CommentFormComponent } from '../../../../../src/app/features/posts/components/comment-form/comment-form.component';
+import { CommentFormComponent } from '@features/posts/components/comment-form/comment-form.component';
 
 describe('CommentFormComponent', () => {
   let fixture: ComponentFixture<CommentFormComponent>;

@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { AppPaginationComponent } from '../../../../src/app/shared/components/pagination/pagination.component';
+import { AppPaginationComponent } from '@shared/components/pagination/pagination.component';
 
 describe('AppPaginationComponent', () => {
   let fixture: ComponentFixture<AppPaginationComponent>;

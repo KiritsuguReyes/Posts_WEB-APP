@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { CommentsService, CommentsQuery, CreateCommentDto } from '../../../../src/app/features/posts/services/comments.service';
-import { Comment } from '../../../../src/app/core/models/comment.model';
-import { ApiResponse, PaginatedResponse } from '../../../../src/app/core/models/api-response.model';
-import { environment } from '../../../../src/environments/environment';
+import { CommentsService, CommentsQuery, CreateCommentDto } from '@features/posts/services/comments.service';
+import { Comment } from '@core/models/comment.model';
+import { ApiResponse, PaginatedResponse } from '@core/models/api-response.model';
+import { environment } from '@env/environment';
 
 const API_URL = `${environment.apiUrl}/comments`;
 

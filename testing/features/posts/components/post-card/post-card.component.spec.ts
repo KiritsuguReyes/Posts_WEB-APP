@@ -1,8 +1,8 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { provideRouter } from '@angular/router';
-import { PostCardComponent } from '../../../../../src/app/features/posts/components/post-card/post-card.component';
-import { Post } from '../../../../../src/app/core/models/post.model';
+import { PostCardComponent } from '@features/posts/components/post-card/post-card.component';
+import { Post } from '@core/models/post.model';
 
 const mockPost: Post = {
   _id: 'post-1',

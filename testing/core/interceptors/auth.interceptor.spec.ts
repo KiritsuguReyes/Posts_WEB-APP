@@ -10,11 +10,11 @@ import {
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
-import { authInterceptor } from '../../../src/app/core/interceptors/auth.interceptor';
-import { JwtService } from '../../../src/app/core/services/jwt.service';
-import { AuthService } from '../../../src/app/core/services/auth.service';
-import { ErrorService } from '../../../src/app/core/services/error.service';
-import { LoadingService } from '../../../src/app/shared/components/loading/loading.service';
+import { authInterceptor } from '@core/interceptors/auth.interceptor';
+import { JwtService } from '@core/services/jwt.service';
+import { AuthService } from '@core/services/auth.service';
+import { ErrorService } from '@core/services/error.service';
+import { LoadingService } from '@shared/components/loading/loading.service';
 
 const TEST_URL = 'https://api.test/data';
 
