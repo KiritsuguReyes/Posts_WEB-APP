@@ -15,6 +15,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@a
         </label>
       }
       <div class="relative">
+        @if (prefix()) {
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-carbon-black-400 pointer-events-none select-none">{{ prefix() }}</span>
+        }
         <input
           [id]="inputId()"
           [type]="type()"
@@ -36,9 +39,10 @@ export class AppInputComponent implements ControlValueAccessor {
   label = input('');
   type = input<'text' | 'email' | 'password' | 'number' | 'search'>('text');
   placeholder = input('');
+  prefix = input('');
   error = input('');
   required = input(false);
-  inputId = input(`input-${Math.random().toString(36).slice(2)}`);
+  inputId = input(`input-${Math.random().toString(36).slice(2)}`);;
 
   value = signal('');
   isDisabled = signal(false);
@@ -58,9 +62,11 @@ export class AppInputComponent implements ControlValueAccessor {
   }
 
   inputClasses(): string {
-    const base = 'w-full px-3 py-2 text-sm rounded-[var(--radius-input)] border transition-colors focus:outline-none focus:ring-2 focus:ring-hunter-green-500 focus:border-transparent bg-surface disabled:opacity-50 disabled:cursor-not-allowed';
-    return this.error()
-      ? `${base} border-error text-error placeholder:text-error/50`
-      : `${base} border-carbon-black-200 text-carbon-black-900 placeholder:text-carbon-black-400 hover:border-carbon-black-400`;
+    const base = 'w-full py-2 text-sm rounded-[var(--radius-input)] border transition-colors focus:outline-none focus:ring-2 focus:ring-hunter-green-500 focus:border-transparent bg-surface disabled:opacity-50 disabled:cursor-not-allowed';
+    const pad = this.prefix() ? 'pl-9 pr-4' : 'px-3';
+    const state = this.error()
+      ? 'border-error text-error placeholder:text-error/50'
+      : 'border-carbon-black-200 text-carbon-black-900 placeholder:text-carbon-black-400 hover:border-carbon-black-400';
+    return `${base} ${pad} ${state}`;
   }
 }
