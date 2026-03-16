@@ -1,9 +1,9 @@
-<div class="min-h-screen flex flex-col bg-background">
+<div class="h-screen flex flex-col bg-background overflow-hidden">
   <app-loading />
   @if (shouldShowHeader()) {
     <app-header />
   }
-  <main class="flex-1">
+  <main class="flex-1 overflow-auto">
     <router-outlet />
   </main>
   <app-footer />
