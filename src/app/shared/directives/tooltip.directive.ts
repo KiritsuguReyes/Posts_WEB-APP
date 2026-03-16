@@ -1,8 +1,7 @@
-import { Directive, input, HostListener, signal, inject, ElementRef, OnDestroy, Renderer2 } from '@angular/core';
+import { Directive, input, HostListener, inject, ElementRef, OnDestroy, Renderer2, DOCUMENT } from '@angular/core';
 
 @Directive({
   selector: '[appTooltip]',
-  host: { 'class': 'relative inline-block' }
 })
 export class AppTooltipDirective implements OnDestroy {
   appTooltip = input.required<string>();
@@ -10,6 +9,7 @@ export class AppTooltipDirective implements OnDestroy {
   private tooltipEl: HTMLElement | null = null;
   private readonly el = inject(ElementRef);
   private readonly renderer = inject(Renderer2);
+  private readonly document = inject(DOCUMENT);
   private hideTimeout?: ReturnType<typeof setTimeout>;
 
   @HostListener('mouseenter') onMouseEnter(): void { this.show(); }
@@ -21,16 +21,35 @@ export class AppTooltipDirective implements OnDestroy {
 
   private show(): void {
     if (this.tooltipEl || !this.appTooltip()) return;
+    const rect: DOMRect = this.el.nativeElement.getBoundingClientRect();
+    const text = this.appTooltip().slice(0, 300);
     const tip = this.renderer.createElement('div') as HTMLElement;
-    tip.textContent = this.appTooltip();
-    tip.className = 'absolute z-50 px-2 py-1 text-xs text-white bg-carbon-black-800 rounded shadow-lg whitespace-nowrap bottom-full left-1/2 -translate-x-1/2 mb-1 pointer-events-none animate-[fade-in_0.15s_ease-out]';
-    this.renderer.appendChild(this.el.nativeElement, tip);
+    tip.textContent = text;
+    tip.style.cssText = `
+      position: fixed;
+      z-index: 999999;
+      top: ${rect.top - 8}px;
+      left: ${rect.left + rect.width / 2}px;
+      transform: translate(-50%, -100%);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      line-height: 1.4;
+      color: white;
+      background: #1c1c1e;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      white-space: normal;
+      word-break: break-word;
+      pointer-events: none;
+      max-width: 280px;
+    `;
+    this.renderer.appendChild(this.document.body, tip);
     this.tooltipEl = tip;
   }
 
   private hide(): void {
     if (this.tooltipEl) {
-      this.renderer.removeChild(this.el.nativeElement, this.tooltipEl);
+      this.renderer.removeChild(this.document.body, this.tooltipEl);
       this.tooltipEl = null;
     }
     clearTimeout(this.hideTimeout);
@@ -38,3 +57,4 @@ export class AppTooltipDirective implements OnDestroy {
 
   ngOnDestroy(): void { this.hide(); }
 }
+

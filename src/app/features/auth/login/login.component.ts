@@ -9,9 +9,10 @@ import { AppInputComponent } from '../../../shared/components/input/input.compon
 @Component({
   selector: 'app-login',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [`:host { display: flex; align-items: center; justify-content: center; overflow-y: auto; flex: 1; min-height: 0; }`],
   imports: [ReactiveFormsModule, RouterLink, AppButtonComponent, AppInputComponent],
   template: `
-    <div class="min-h-[calc(100vh-7rem)] flex items-center justify-center px-4 py-10">
+    <div class="w-full px-4 py-10 flex items-center justify-center">
       <div class="w-full max-w-md">
         <!-- Card -->
         <div class="bg-surface rounded-[var(--radius-card)] shadow-[var(--shadow-card)] p-8 animate-[slide-up_0.25s_ease-out]">

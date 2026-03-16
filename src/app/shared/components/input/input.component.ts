@@ -25,6 +25,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@a
           [placeholder]="placeholder()"
           [disabled]="isDisabled()"
           [value]="value()"
+          [attr.maxlength]="maxLength() > 0 ? maxLength() : null"
           (input)="onInput($event)"
           (blur)="onTouched()"
           [class]="inputClasses()"
@@ -41,6 +42,7 @@ export class AppInputComponent implements ControlValueAccessor {
   type = input<'text' | 'email' | 'password' | 'number' | 'search'>('text');
   placeholder = input('');
   prefix = input('');
+  maxLength = input(0);
   error = input('');
   required = input(false);
   inputId = input(`input-${Math.random().toString(36).slice(2)}`);;
