@@ -43,6 +43,7 @@ export class ErrorService {
       case 403: return 'No tienes permiso para esta acción';
       case 404: return 'No encontrado';
       case 409: return 'El recurso ya existe';
+      case 429: return 'Demasiadas solicitudes, intenta más tarde';
       case 500: return 'Error del servidor, intenta más tarde';
       default:  return 'Error inesperado';
     }

@@ -1,6 +1,6 @@
 # Posts System  Frontend Angular
 
-Sistema de gestion de posts y comentarios construido con Angular 21, Tailwind CSS v3 e Ionic Capacitor.
+Sistema de gestion de posts y comentarios construido con Angular 21, Tailwind CSS v3 e Capacitor.
 
 ## Stack
 
@@ -8,7 +8,7 @@ Sistema de gestion de posts y comentarios construido con Angular 21, Tailwind CS
 |---|---
 | Angular | 21 (standalone, signals) |
 | Tailwind CSS | v3 (CSS-first, @theme) |
-| Ionic Capacitor | Latest |
+| Capacitor | Latest |
 | RxJS | 7.8 |
 
 ## Requisitos
