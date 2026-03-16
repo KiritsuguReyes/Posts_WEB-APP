@@ -43,7 +43,15 @@ npm run config
 npm start
 ```
 
-## 3) Flujo para Mobile (Android)
+## 3) Pruebas unitarias (Vitest)
+
+Ejecutar las pruebas unitarias:
+
+```bash
+npm run test
+```
+
+## 4) Flujo para Mobile (Android)
 
 Para probar en celular, la API debe estar expuesta en una URL publica.
 
@@ -73,7 +81,7 @@ npm run build-android
 
 Este comando hace build web, sincroniza Capacitor y abre Android Studio automaticamente.
 
-## 4) Ejecutar en dispositivo fisico
+## 5) Ejecutar en dispositivo fisico
 
 1. Conectar el celular por USB.
 2. Activar `Opciones de desarrollador` y `Depuracion USB`.
