@@ -7,12 +7,13 @@ import { toast } from 'ngx-sonner';
 import { AppButtonComponent } from '../../../../shared/components/button/button.component';
 import { AppInputComponent } from '../../../../shared/components/input/input.component';
 import { AppTextareaComponent } from '../../../../shared/components/textarea/textarea.component';
+import { AppAvatarComponent } from '../../../../shared/components/avatar/avatar.component';
 
 @Component({
   selector: 'app-post-form',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`:host { display: block; overflow-y: auto; flex: 1; min-height: 0; }`],
-  imports: [ReactiveFormsModule, AppButtonComponent, AppInputComponent, AppTextareaComponent],
+  imports: [ReactiveFormsModule, AppButtonComponent, AppInputComponent, AppTextareaComponent, AppAvatarComponent],
   template: `
     <div class="max-w-2xl mx-auto px-4 sm:px-6 py-6">
 
@@ -42,6 +43,17 @@ import { AppTextareaComponent } from '../../../../shared/components/textarea/tex
           </div>
         } @else {
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-5">
+            <!-- Author preview (read-only, auto-filled from account) -->
+            @if (!isEditMode()) {
+              <div class="flex items-center gap-2 p-3 bg-carbon-black-50 rounded-lg border border-carbon-black-100">
+                <app-avatar [name]="authorName()" size="sm" />
+                <div class="min-w-0">
+                  <p class="text-xs text-carbon-black-400">Publicando como</p>
+                  <p class="text-sm font-medium text-carbon-black-800 truncate">{{ authorName() }}</p>
+                </div>
+              </div>
+            }
+
             <app-input
               formControlName="title"
               label="Título"
@@ -94,18 +106,23 @@ export class PostFormComponent implements OnInit {
   loadingPost = signal(false);
 
   isEditMode = computed(() => !!this.id());
+  authorName = computed(() => this.authService.getCurrentClaims()?.name ?? '');
 
   form = this.fb.group({
-    title: ['', [Validators.required, Validators.minLength(3)]],
-    body:  ['', [Validators.required, Validators.minLength(10)]],
+    title:  ['', [Validators.required, Validators.minLength(3)]],
+    body:   ['', [Validators.required, Validators.minLength(10)]],
+    author: ['', [Validators.required]],
   });
 
   ngOnInit(): void {
+    // Pre-fill author from JWT claims
+    this.form.patchValue({ author: this.authorName() });
+
     if (this.isEditMode()) {
       this.loadingPost.set(true);
       this.postsService.getById(this.id()!).subscribe({
         next: res => {
-          this.form.patchValue({ title: res.data.title, body: res.data.body });
+          this.form.patchValue({ title: res.data.title, body: res.data.body, author: res.data.author });
           this.loadingPost.set(false);
         },
         error: () => { this.loadingPost.set(false); this.router.navigate(['/posts']); }
@@ -123,13 +140,12 @@ export class PostFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.invalid) { this.form.markAllAsTouched(); return; }
-    const claims = this.authService.getCurrentClaims();
-    const { title, body } = this.form.value;
+    const { title, body, author } = this.form.value;
 
     const dto = {
       title: title!,
       body: body!,
-      author: claims?.name ?? '',
+      author: author!,
     };
 
     this.saving.set(true);

@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, input, output, inject, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from '../../../../core/models/post.model';
+import { relativeDate } from '../../../../core/utils/date.utils';
 import { AppAvatarComponent } from '../../../../shared/components/avatar/avatar.component';
 import { AppButtonComponent } from '../../../../shared/components/button/button.component';
 import { AppConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
@@ -98,19 +99,7 @@ export class PostCardComponent {
   });
 
   relativeDate(): string {
-    const d = new Date(this.post().createdAt);
-    const now = Date.now();
-    const diff = now - d.getTime();
-    const mins = Math.floor(diff / 60000);
-    if (mins < 1) return 'Ahora';
-    if (mins < 60) return `hace ${mins} min`;
-    const hrs = Math.floor(mins / 60);
-    if (hrs < 24) return `hace ${hrs} h`;
-    const days = Math.floor(hrs / 24);
-    if (days < 7) return `hace ${days} día${days > 1 ? 's' : ''}`;
-    const weeks = Math.floor(days / 7);
-    if (weeks < 5) return `hace ${weeks} semana${weeks > 1 ? 's' : ''}`;
-    return d.toLocaleDateString('es-HN', { day: 'numeric', month: 'short', year: 'numeric' });
+    return relativeDate(this.post().createdAt);
   }
 
   navigateToDetail(event: MouseEvent): void {

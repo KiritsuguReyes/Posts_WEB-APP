@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, retry, throwError, timer } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { Comment } from '../../../core/models/comment.model';
 import { ApiResponse, PaginatedResponse } from '../../../core/models/api-response.model';
@@ -32,6 +32,7 @@ export class CommentsService {
     params = params.set('postId', query.postId);
 
     return this.http.get<PaginatedResponse<Comment>>(`${this.apiUrl}/paginated`, { params }).pipe(
+      retry({ count: 2, delay: (_, retryCount) => timer(retryCount * 1000) }),
       catchError(err => throwError(() => err))
     );
   }
@@ -44,6 +45,7 @@ export class CommentsService {
 
   update(id: string, body: string): Observable<ApiResponse<Comment>> {
     return this.http.put<ApiResponse<Comment>>(`${this.apiUrl}/${id}`, { body }).pipe(
+      retry({ count: 2, delay: (_, retryCount) => timer(retryCount * 1000) }),
       catchError(err => throwError(() => err))
     );
   }

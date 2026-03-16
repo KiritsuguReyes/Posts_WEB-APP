@@ -4,6 +4,7 @@ import {
 import { Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
 import { Subject } from 'rxjs';
+import { relativeDate, formatDate } from '../../../../core/utils/date.utils';
 import { PostsService } from '../../services/posts.service';
 import { CommentsService } from '../../services/comments.service';
 import { AuthService } from '../../../../core/services/auth.service';
@@ -315,21 +316,11 @@ export class PostDetailComponent implements OnInit {
   }
 
   formatDate(dateStr: string): string {
-    const d = new Date(dateStr);
-    return d.toLocaleDateString('es-HN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    return formatDate(dateStr);
   }
 
   relativeDate(dateStr: string): string {
-    const d = new Date(dateStr);
-    const diff = Date.now() - d.getTime();
-    const mins = Math.floor(diff / 60000);
-    if (mins < 1) return 'Ahora';
-    if (mins < 60) return `hace ${mins} min`;
-    const hrs = Math.floor(mins / 60);
-    if (hrs < 24) return `hace ${hrs} h`;
-    const days = Math.floor(hrs / 24);
-    if (days < 7) return `hace ${days} día${days > 1 ? 's' : ''}`;
-    return this.formatDate(dateStr);
+    return relativeDate(dateStr);
   }
 
   onCommentSubmit(body: string): void {

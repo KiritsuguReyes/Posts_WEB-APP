@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, input, computed } from '@angular/core';
+import { InitialsPipe } from '../../pipes/initials.pipe';
 
 export type AvatarSize = 'sm' | 'md' | 'lg';
 
@@ -13,27 +14,19 @@ const COLORS = [
 @Component({
   selector: 'app-avatar',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [InitialsPipe],
   template: `
     <div
       [class]="avatarClasses()"
       [attr.aria-label]="name()"
       role="img">
-      {{ initials() }}
+      {{ name() | initials }}
     </div>
   `,
 })
 export class AppAvatarComponent {
   name = input.required<string>();
   size = input<AvatarSize>('md');
-
-  initials = computed((): string => {
-    const name = this.name();
-    if (!name || typeof name !== 'string') return '??';
-    const parts = name.trim().split(/\s+/);
-    if (parts.length === 0 || !parts[0]) return '??';
-    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
-    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-  });
 
   colorClass = computed((): string => {
     const name = this.name();

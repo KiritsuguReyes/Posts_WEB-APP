@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, retry, catchError, throwError } from 'rxjs';
+import { Observable, retry, catchError, throwError, delay, timer } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { Post } from '../../../core/models/post.model';
 import { ApiResponse, PaginatedResponse } from '../../../core/models/api-response.model';
@@ -31,7 +31,7 @@ export class PostsService {
     if (query.userId?.trim()) params = params.set('userId', query.userId.trim());
 
     return this.http.get<PaginatedResponse<Post>>(`${this.apiUrl}/paginated`, { params }).pipe(
-      retry(2),
+      retry({ count: 2, delay: (_, retryCount) => timer(retryCount * 1000) }),
       catchError(err => throwError(() => err))
     );
   }
@@ -50,6 +50,7 @@ export class PostsService {
 
   update(id: string, dto: Partial<CreatePostDto>): Observable<ApiResponse<Post>> {
     return this.http.put<ApiResponse<Post>>(`${this.apiUrl}/${id}`, dto).pipe(
+      retry({ count: 2, delay: (_, retryCount) => timer(retryCount * 1000) }),
       catchError(err => throwError(() => err))
     );
   }
